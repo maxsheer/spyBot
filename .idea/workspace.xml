@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ae0263d-3b98-4762-8cde-a1c0a48e2062" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/messages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/othrlambdas.py" beforeDir="false" afterPath="$PROJECT_DIR$/othrlambdas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/queries.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,9 +97,25 @@
       <option name="presentableId" value="Default" />
       <updated>1592849821941</updated>
     </task>
+    <task id="LOCAL-00001" summary="smth around final">
+      <created>1593149792933</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593149792934</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="smth around final" />
+    <option name="LAST_COMMIT_MESSAGE" value="smth around final" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="614" y="134" key="CommitChangelistDialog2" timestamp="1593149791742">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="614" y="134" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1593149791742" />
     <state width="1899" height="294" key="GridCell.Tab.0.bottom" timestamp="1593064675433">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
