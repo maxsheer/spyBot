@@ -16,6 +16,70 @@ import base64
 import random
 import locations
 
+
+# ----------------------gameparticipant-----------------------------------------
+
+
+def remind_game_host_6(game_id):
+    event = dict()
+    event['game_id'] = game_id
+    client = boto3.client('lambda')
+    resp = client.invoke(
+        FunctionName='spyBotprod_remindhost',
+        InvocationType='Event',
+        Payload=json.dumps(event)
+    )
+    return resp
+
+
+def process_payload_six(payload, event):
+    conn = pymysql.connect("spydatabase.crqx5vnl70pi.eu-north-1.rds.amazonaws.com", "admin", "12345678",
+                           "Spy", connect_timeout=5)
+    cur = conn.cursor()
+    cur.execute(queries.EXTRACT_GAME_ID_2.format(
+        user_id=event['object']['message']['from_id']
+    ))
+    game_id = cur.fetchone()[0]
+    cur.execute(queries.UPD_GAME_6.format(
+        game_id=game_id
+    ))
+    cur.execute(queries.REM_PLAYER_6.format(
+        user_id=event['object']['message']['from_id']
+    ))
+    conn.commit()
+    conn.close()
+    print(remind_game_host_6(game_id))
+    msg = messages.messages['exit_game']
+    keyboard = keyboards.keyboards['initial']
+    return msg, keyboard
+
+
+def spyBotprod_gameparticipant(event, context):
+    vk_api_key = os.environ['VK_API_KEY']
+    vk_api_ver = os.environ['VK_API_VER']
+    try:
+        child = vkbot.VkBot(vk_api_key, vk_api_ver)
+        if 'payload' not in event['object']['message']:
+            msg = messages.messages['zero_error']
+            keyboard = keyboards.keyboards['game_participant']
+        else:
+            payload = json.loads(event['object']['message']['payload'])['info']
+            if payload in stagetab.payloads['six']:
+                msg, keyboard = process_payload_six(payload, event)
+            else:
+                msg = messages.messages['payload_err']
+                keyboard = keyboards.keyboards['game_participant']
+        print(child.send_message(str(event['object']['message']['from_id']),
+                                 msg, json.dumps(keyboard)).json())
+    except KeyError:
+        print('smth wrong')
+    except pymysql.Error:
+        print('smth wrong w/ bd')
+    return {
+        "status": "OK"
+    }
+
+
 # ----------------------startgame-----------------------------------------
 
 
