@@ -52,6 +52,14 @@ payloads = {
                 "keyboard": "back_only",
                 "msg": "back4"
             }
+        },
+    "six":
+        {
+            "exit_game": {
+                "next_stage": 0,
+                "keyboard": "initial",
+                "msg": "Дасвидания, пока, удачи!"
+            }
         }
 }
 

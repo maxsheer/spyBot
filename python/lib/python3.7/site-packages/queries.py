@@ -22,3 +22,6 @@ GET_E_TUPLE_SG = "select user_id from Players where current_game_id = '{game_id}
 UPDATE_PLAYERS_SG = "update Players set connected = DEFAULT, current_game_id = DEFAULT," \
                     " stage = 0 where current_game_id = '{game_id}'"
 GET_HOST = "select game_host, connected from Games where game_id = '{game_id}'"
+UPD_GAME_6 = "update Games set connected = connected - 1 where game_id = '{game_id}'"
+REM_PLAYER_6 = "update Players set connected = DEFAULT, current_game_id = DEFAULT," \
+               "stage = 0 where user_id = '{user_id}'"

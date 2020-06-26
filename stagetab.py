@@ -10,7 +10,7 @@ payloads = {
                 "msg": "creategame_sendpass"
             },
             "findgame": {
-                "next_stage": 4,
+                "next_stage": 3,
                 "keyboard": "back_only",
                 "msg": "findgame_sendid"
             }

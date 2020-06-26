@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3ae0263d-3b98-4762-8cde-a1c0a48e2062" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/messages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/othrlambdas.py" beforeDir="false" afterPath="$PROJECT_DIR$/othrlambdas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python.zip" beforeDir="false" afterPath="$PROJECT_DIR$/python.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/lib/python3.7/site-packages/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/lib/python3.7/site-packages/messages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/lib/python3.7/site-packages/queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/lib/python3.7/site-packages/queries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/lib/python3.7/site-packages/stagetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/lib/python3.7/site-packages/stagetab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/queries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stagetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/stagetab.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593150950364</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="smth around final">
+      <created>1593152484382</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1593152484382</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -139,10 +145,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="smth around final" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="614" y="134" key="CommitChangelistDialog2" timestamp="1593150949456">
+    <state x="614" y="134" key="CommitChangelistDialog2" timestamp="1593152483102">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="614" y="134" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1593150949456" />
+    <state x="614" y="134" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1593152483102" />
     <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1593150633156">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
