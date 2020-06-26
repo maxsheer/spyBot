@@ -37,12 +37,20 @@ payloads = {
                 "msg": "delgame"
             }
         },
-    "fourth":
+    "third":
         {
             "back": {
                 "next_stage": 0,
                 "keyboard": "initial",
                 "msg": "mainmenu"
+            }
+        },
+    "fourth":
+        {
+            "back": {
+                "next_stage": 3,
+                "keyboard": "back_only",
+                "msg": "back4"
             }
         }
 }
@@ -53,9 +61,8 @@ payloads = {
 # 2: hostgame
 # 3: findgame
 # 4: findgameid
-# 5: findgamepass
-# 6: deletegame
-# 7: gameparticipant
+# 5: deletegame
+# 6: gameparticipant
 #
 #
 #
