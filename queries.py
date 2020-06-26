@@ -19,5 +19,6 @@ PLAYER_BACK_4 = "update Players set current_game_id = DEFAULT, connected = DEFAU
     " where user_id='{user_id}'"
 GET_TUPLE_SG = "select user_id from Players where current_game_id = '{game_id}' and connected = 1"
 GET_E_TUPLE_SG = "select user_id from Players where current_game_id = '{game_id}'"
-UPDATE_PLAYERS_SG = "update Players set connected = DEFAULT, current_game_id = DEFAULT, stage = 0 where current_game_id = '{game_id}'"
-GET_HOST = "select game_host from Games where game_id = '{game_id}'"
+UPDATE_PLAYERS_SG = "update Players set connected = DEFAULT, current_game_id = DEFAULT," \
+                    " stage = 0 where current_game_id = '{game_id}'"
+GET_HOST = "select game_host, connected from Games where game_id = '{game_id}'"

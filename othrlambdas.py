@@ -21,9 +21,14 @@ import locations
 
 def get_gamehost(game_id):
     conn = pymysql.connect("spydatabase.crqx5vnl70pi.eu-north-1.rds.amazonaws.com", "admin", "12345678",
-                               "Spy", connect_timeout=5)
+                           "Spy", connect_timeout=5)
     cur = conn.cursor()
-    cur.execute
+    cur.execute(queries.GET_HOST.format(
+        game_id=game_id
+    ))
+    info = cur.fetchone()
+    conn.close()
+    return info
 
 
 def spyBotprod_remindhost(event, context):
@@ -31,7 +36,17 @@ def spyBotprod_remindhost(event, context):
     vk_api_ver = os.environ['VK_API_VER']
     game_id = event['game_id']
     try:
-        game_host = get_gamehost(game_id)
+        child = vkbot.VkBot(vk_api_ver, vk_api_key)
+        info = get_gamehost(game_id)[0]
+        msg = messages.messages['remind_host'].format(num_con=info[1])
+        print(child.send_message(info[0], msg).json())
+    except KeyError as e:
+        print("KE: " + e.__str__())
+    except pymysql.Error as e:
+        print("PME " + e.__str__())
+    return {
+        "STATUS": "OK"
+    }
 
 
 # ----------------------startgame-----------------------------------------
@@ -39,7 +54,7 @@ def spyBotprod_remindhost(event, context):
 
 def get_entire_dg(game_id: str) -> Tuple[Tuple]:
     conn = pymysql.connect("spydatabase.crqx5vnl70pi.eu-north-1.rds.amazonaws.com", "admin", "12345678",
-                               "Spy", connect_timeout=5)
+                           "Spy", connect_timeout=5)
     cur = conn.cursor()
     cur.execute(queries.GET_E_TUPLE_SG.format(
         game_id=game_id
@@ -65,9 +80,9 @@ def spyBotprod_delgame(event: dict, context: Optional) -> dict:
         for i in entire_tuple:
             print(child.send_message(i[0], msg, json.dumps(keyboard)).json())
     except KeyError as e1:
-        print("smth wrong " + e1)
+        print("smth wrong " + e1.__str__())
     except pymysql.Error as e2:
-        print("smth wrong with db" + e2)
+        print("smth wrong with db" + e2.__str__())
     return {
         "status": "OK"
     }
@@ -75,9 +90,9 @@ def spyBotprod_delgame(event: dict, context: Optional) -> dict:
 
 # ----------------------startgame-----------------------------------------
 
-def get_tuples(game_id: str) -> Tuple, Tuple:
+def get_tuples(game_id: str):
     conn = pymysql.connect("spydatabase.crqx5vnl70pi.eu-north-1.rds.amazonaws.com", "admin", "12345678",
-                               "Spy", connect_timeout=5)
+                           "Spy", connect_timeout=5)
     cur = conn.cursor()
     cur.execute(queries.GET_TUPLE_SG.format(
         game_id=game_id
@@ -101,7 +116,6 @@ def form_spy_msg() -> str:
     return dm + 'СПИСОК ЛОКАЦИЙ:' + dm1 + dm
 
 
-
 def spyBotprod_startgame(event: dict, context: Optional) -> dict:
     vk_api_key = os.environ['VK_API_KEY']
     vk_api_ver = os.environ['VK_API_VER']
@@ -122,9 +136,9 @@ def spyBotprod_startgame(event: dict, context: Optional) -> dict:
         for i in entire_tuple:
             print(child.send_message(i[0], msg, json.dumps(keyboard)).json())
     except KeyError as e:
-        print("smth wrong with payload " + e)
+        print("smth wrong with payload " + e.__str__())
     except pymysql.Error as e:
-        print("smth wrong with dbase: " + e)
+        print("smth wrong with dbase: " + e.__str__())
     return {
         "status": "OK"
     }
@@ -187,10 +201,10 @@ def process_password_fg(event):
 
 def process_payload_fourth(payload, event):
     conn = pymysql.connect("spydatabase.crqx5vnl70pi.eu-north-1.rds.amazonaws.com", "admin", "12345678",
-                               "Spy", connect_timeout=5)
+                           "Spy", connect_timeout=5)
     cur = conn.cursor()
     cur.execute(queries.PLAYER_BACK_4.format(
-        new_stage=stagetab.payloads['fourth'][payload]['next_stage']
+        new_stage=stagetab.payloads['fourth'][payload]['next_stage'],
         user_id=event['object']['message']['from_id']
     ))
     conn.commit()
@@ -232,6 +246,7 @@ def check_id(pw: str) -> object:
     regex = re.compile('[^a-zA-Z0-9]')
     return regex.search(pw)
 
+
 def process_id(event):
     prov_id = event['object']['message']['text']
     bad_id = check_id(prov_id)
@@ -239,11 +254,11 @@ def process_id(event):
         conn = pymysql.connect("spydatabase.crqx5vnl70pi.eu-north-1.rds.amazonaws.com", "admin", "12345678",
                                "Spy", connect_timeout=5)
         cur = conn.cursor()
-        cur.execute(queries.SEARCH_ID_4.format(
+        cur.execute(queries.SEARCH_ID_3.format(
             game_id=prov_id
         ))
         if cur.fetchone():
-            cur.execute(queries.UPDATE_PLAYERS_4.format(
+            cur.execute(queries.UPDATE_PLAYERS_3.format(
                 game_id=prov_id,
                 new_stage=5,
                 user_id=event['object']['message']['from_id']
