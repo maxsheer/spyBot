@@ -1,5 +1,5 @@
 handlers = ('spyBotprod_initial', 'spyBotprod_creategame', 'spyBotprod_hostgame',
-            'spyBotprod_findgame_id', 'spyBotprod_findgamepass',
+            'spyBotprod_findgame', 'spyBotprod_findgame_id',
             'spyBotprod_deletegame', 'spyBotprod_gameparticipant')
 payloads = {
     "zero":
